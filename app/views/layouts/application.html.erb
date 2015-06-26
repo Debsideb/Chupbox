@@ -1,7 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <title>Chupbox</title>
+
+
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
@@ -9,10 +16,10 @@
 <body>
 
 <% if current_order %>
-<p style="border:1px solid black;padding:10px;">
-  You have <%= pluralize current_order.total_items, 'meals'%> in your basket which cost
-  <%= number_to_currency current_order.total_before_tax %>.
-</p>
+  <p style="border:1px solid black;padding:10px;">
+    You have <%= pluralize current_order.total_items, 'meals'%> in your basket which cost
+    <%= number_to_currency current_order.total_before_tax %>.
+  </p>
 <% end %>
 
 <%= yield %>
