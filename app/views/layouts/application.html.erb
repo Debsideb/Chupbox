@@ -8,26 +8,38 @@
 
   <title>Chupbox</title>
 
-
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
+
+
 <body>
 
-<% if current_order %>
-  <p style="border:1px solid black;padding:10px;">
-    You have <%= pluralize current_order.total_items, 'meals'%> in your basket which cost
-    <%= number_to_currency current_order.total_before_tax %>.
-  </p>
-<% end %>
+  <!-- NAVBAR -->
 
-<%= yield %>
 
-<%= link_to "View basket", basket_path %>
-<%= flash[:notice] %>
+  <!-- BODY -->
 
-<%= link_to "Checkout", checkout_path %>
+  <!-- this line summarize your basket -->
+  <% if current_order %>
+    <p style="border:1px solid black;padding:10px;">
+      You have <%= pluralize current_order.total_items, 'meals'%> in your basket which cost
+      <%= number_to_currency current_order.total_before_tax %>.
+    </p>
+    <% end %>
+
+  <%= yield %>
+
+  <!-- Links to the basket and the checkout pages -->
+  <%= link_to "View basket", basket_path %>
+  <%= flash[:notice] %>
+
+  <%= link_to "Checkout", checkout_path %>
+
+  <!-- FOOTER -->
+  <%= render "layouts/footer" %>
 
 </body>
+
 </html>
