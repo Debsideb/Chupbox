@@ -5,10 +5,17 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+</head>
+
+<body>
+  <%= yield %>
+
+
+
+  <br><br><br><br>
+  <%= link_to "Products", products_path %>
 
 </body>
+
 </html>
