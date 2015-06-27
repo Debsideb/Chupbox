@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <title>Chupbox</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -9,12 +10,36 @@
 </head>
 
 <body>
+
+  <!-- NAVBAR -->
+
+
+  <!-- BODY -->
+  <div class="container">
+    <div class="row">
+      <div id="logo">
+        <%= image_tag "logo.png" %>
+      </div>
+      <div class= "col-md-3" id="basil">
+        <%= image_tag "basil.png" %>
+      </div>
+      <div class= "col-md-6">
+        <p id="make-your"> Your kitchen,</p>
+        <p id="your-favorite"> becomes your favorite</p>
+        <p id="restaurant"> RESTAURANT</p>
+        <%= link_to "Products", products_path %>
+      </div>
+        <div class = "col-md-3" id="curry">
+          <%= image_tag "curry.png" %>
+        </div>
+    </div>
+  </div>
+
   <%= yield %>
 
+  <%= render "layouts/footer" %>
 
-
-  <br><br><br><br>
-  <%= link_to "Products", products_path %>
+  <!-- FOOTER -->
 
 </body>
 
