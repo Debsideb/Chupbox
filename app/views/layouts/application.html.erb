@@ -17,32 +17,14 @@
 <body>
 
   <!-- NAVBAR -->
-
-
+<%= render "layouts/nav" %>
   <!-- BODY -->
-
-  <!-- this line summarize your basket -->
-  <div class="container">
-    <div class="row">
-      <div class="col-md-3" id="basket-summary">
-        <% if current_order %>
-          <p>
-          You have <%= pluralize current_order.total_items, 'meals'%> in your basket which cost
-          <%= number_to_currency current_order.total_before_tax %>.
-          </p>
-        <% end %>
-      </div>
-    </div>
-  </div>
 
   <%= yield %>
 
   <!-- Links to the basket and the checkout pages -->
   <%= link_to "View basket", basket_path %>
   <%= flash[:notice] %>
-
-  <%= link_to "Checkout", checkout_path %>
-  <%= render 'orders/items', :order => current_order %>
 
   <!-- FOOTER -->
   <%= render "layouts/footer" %>

@@ -1,14 +1,48 @@
 
-
-
 <% @products.each do |category, products| %>
-  <ul>
-    <% products.each do |product| %>
-    <li>
-      <h4><%= link_to product.name, product_path(product.permalink) %></h4>
-      <p><%= product.short_description %></p>
-      <p><b>Price:</b> <%= number_to_currency product.price %></p>
-    </li>
-    <% end %>
-  </ul>
+
+<%= render "layouts/logo" %>
+
+<div class="container-fluid">
+  <div class="row">
+     <div class ="col-md-4" id="pack">
+        <ul>
+          <% products.each do |product| %>
+          <li>
+          <p id="price"><%= number_to_currency product.price %></p>
+          <h4><%= link_to product.name.upcase, product_path(product.permalink) %></h4>
+          <p id="description"><%= product.short_description %></p>
+          </li>
+        <% end %>
+        </ul>
+    </div>
+
+    <div class="col-md-3" id="basket-summary">
+      <% if current_order %>
+      <p id="items-number"><%= pluralize current_order.total_items, ''%></p>
+      <p id="pieces"> pcs </p>
+      <p id="for">for:</p>
+      <p id="price"><%= number_to_currency current_order.total_before_tax %></p>
+      <% end %>
+    </div>
+
+    <div class ="col-md-4"></div>
+
+  </div>
+</div>
+
+<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
+
+<div class="container">
+  <div class="row">
+    <div class ="col-md-8">
+      <%= link_to "Checkout", checkout_path %>
+      <%= render 'orders/items', :order => current_order %>
+    </div>
+    <div class ="col-md-4"></div>
+  </div>
+</div>
+
+
+
 <% end %>

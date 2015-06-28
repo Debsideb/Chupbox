@@ -12,32 +12,27 @@
 <body>
 
   <!-- NAVBAR -->
-
+  <%= render "layouts/nav" %>
 
   <!-- BODY -->
   <div class="container">
     <div class="row">
-
-      <div id="logo">
-        <%= image_tag "logostamp.png" %>
-      </div>
-
+      <%= render "layouts/logo" %>
       <div class= "col-md-3" id="basil">
         <%= image_tag "basil.png" %>
       </div>
-
       <div class= "col-md-6">
         <p id="make-your"> Your kitchen,</p>
         <p id="your-favorite"> becomes your favorite</p>
         <p id="restaurant"> RESTAURANT</p>
         <div class="button-go">
-        <%= link_to_image "lets-go-bg.png", products_path %>
+          <%= link_to_image "lets-go-bg.png", products_path %>
         </div>
       </div>
 
-        <div class = "col-md-3" id="curry">
-          <%= image_tag "curry.png" %>
-        </div>
+      <div class = "col-md-3" id="curry">
+        <%= image_tag "curry.png" %>
+      </div>
     </div>
   </div>
 
