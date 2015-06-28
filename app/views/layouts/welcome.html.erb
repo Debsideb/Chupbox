@@ -17,18 +17,24 @@
   <!-- BODY -->
   <div class="container">
     <div class="row">
+
       <div id="logo">
-        <%= image_tag "logo.png" %>
+        <%= image_tag "logostamp.png" %>
       </div>
+
       <div class= "col-md-3" id="basil">
         <%= image_tag "basil.png" %>
       </div>
+
       <div class= "col-md-6">
         <p id="make-your"> Your kitchen,</p>
         <p id="your-favorite"> becomes your favorite</p>
         <p id="restaurant"> RESTAURANT</p>
-        <%= link_to "Products", products_path %>
+        <div class="button-go">
+        <%= link_to_image "lets-go-bg.png", products_path %>
+        </div>
       </div>
+
         <div class = "col-md-3" id="curry">
           <%= image_tag "curry.png" %>
         </div>
