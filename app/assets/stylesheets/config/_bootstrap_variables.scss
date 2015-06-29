@@ -9,7 +9,7 @@ $body-bg:                 lighten(#000, 93.5%);
 $font-size-base:          $base-size;
 $line-height-base:        $base-height;
 $headings-font-family:    $header-font;
-$background-image:        url('background.jpg');
+$background-image:        url('background-2.jpg');
 
 // Semantic color scheme
 $brand-primary:   $blue;
@@ -25,8 +25,8 @@ $border-radius-small: 2px;
 
 // Links style
 $link-hover-decoration: none;
-$link-hover-color: $blue;
-$link-color: $fuchia;
+$link-hover-color: $fuchia;
+$link-color: $gray-light;
 
 // Grid padding
 $grid-gutter-width: 0 ;
