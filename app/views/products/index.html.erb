@@ -1,48 +1,65 @@
 
+<div class= "basket">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <% if current_order %>
+          <div id="basket-tag">
+          <%= image_tag "basket-tag.png" %>
+          </div>
+          <p id="items-number"><%= pluralize current_order.total_items, ''%></p>
+          <p id="pieces"> pcs </p>
+          <p id="inyour"> IN YOUR BASKET </p>
+          <p id="cost">WHICH COST:</p>
+          <p id="price"><%= number_to_currency current_order.total_before_tax %></p>
+          <p id="checkout"><%= link_to "View basket", basket_path %>
+        <% end %>
+      </div>
+      <div class="col-md-4"></div>
+      </div>
+    </div>
+  </div>
+
 <% @products.each do |category, products| %>
 
-<%= render "layouts/logo" %>
-
-<div class="container-fluid">
-  <div class="row">
-     <div class ="col-md-4" id="pack">
-        <ul>
-          <% products.each do |product| %>
-          <li>
-          <p id="price"><%= number_to_currency product.price %></p>
-          <h4><%= link_to product.name.upcase, product_path(product.permalink) %></h4>
-          <p id="description"><%= product.short_description %></p>
-          </li>
+<div class="product-wrapper">
+  <div class="container-fluid">
+    <div class="row">
+      <div class ="col-md-4" id="pack">
+        <% products.each do |product| %>
+        <p id="price"><%= number_to_currency product.price %></p>
+        <h4><%= product.name.upcase %></h4>
+        <p id="description"><%= product.short_description %></p>
+        <div id = "add-button">
+          <%= link_to_image "add-me.png", product_path(product.permalink), :method => :post %>
+        </div>
+     </div>
+      <div class="col-md-8">
+        <% if product.default_image %>
+       <%= image_tag product.default_image.path, :width => '300px', :style => "float:right" %>
         <% end %>
-        </ul>
+        <% end %>
+      </div>
     </div>
-
-    <div class="col-md-3" id="basket-summary">
-      <% if current_order %>
-      <p id="items-number"><%= pluralize current_order.total_items, ''%></p>
-      <p id="pieces"> pcs </p>
-      <p id="for">for:</p>
-      <p id="price"><%= number_to_currency current_order.total_before_tax %></p>
-      <% end %>
-    </div>
-
-    <div class ="col-md-4"></div>
-
   </div>
 </div>
-
-<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
-
-<div class="container">
-  <div class="row">
-    <div class ="col-md-8">
-      <%= link_to "Checkout", checkout_path %>
-      <%= render 'orders/items', :order => current_order %>
-    </div>
-    <div class ="col-md-4"></div>
-  </div>
-</div>
-
-
 
 <% end %>
+
+  <!-- <#%= link_to "View basket", basket_path %>
+  <#%= flash[:notice] %> -->
+
+<!-- <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br> -->
+
+
+<!-- <div class="container">
+  <div class="row">
+    <div class ="col-md-8">
+      <#%= link_to "Checkout", checkout_path %>
+      <#%= render 'orders/items', :order => current_order %>
+    </div>
+    <div class ="col-md-4"></div>
+  </div>
+</div>
+</body> -->

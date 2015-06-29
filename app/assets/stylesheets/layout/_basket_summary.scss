@@ -1,30 +1,63 @@
+.basket #basket-tag img {
+  display:block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:0px;
+  height: 200px;
+  width:auto;
+}
 
-#basket-summary #items-number {
+
+.basket #items-number {
   font-family:'Sketch';
   font-size:60px;
   color:#c29856;
-  margin-top:-70px;
-  margin-right:-95px;
+  text-align:center;
+  margin-right:25px;
+  margin-top:-200px;
 }
 
-#basket-summary #pieces {
+.basket #pieces {
   font-family:'Sketch';
   font-size:20px;
   color:#c29856;
-  margin-top:-65px;
-  margin-right:-160px;
+  text-align:center;
+  margin-top:-73px;
+  margin-right:-50px;
 }
 
-#basket-summary #for {
+.basket #inyour {
   font-family:'impact';
-  font-size:20px;
-  color:white;
-  margin-top:-40px;
-  margin-right:-260px;
+  color:#929292;
+  font-size:11px;
+  text-align:center;
+  margin-top:20px;
+  margin-right:-10px;
 }
 
-#basket-summary #price {
+.basket #cost {
   font-family:'impact';
-  font-size:20px;
-  color:white;
+  font-size:13px;
+  text-align:center;
+  color:#929292;
+  margin-top:-12px;
+  margin-right:-10px;
+}
+
+.basket #price {
+  font-family:'GrutchShaded';
+  color:#5b5b5b;
+  font-size:25px;
+  text-align:center;
+  margin-top:-5px;
+  margin-right:-8px;
+}
+
+.basket #checkout {
+  font-family:'KGSecondChancesSketch';
+  color:#434343;
+  font-size:18px;
+  text-align:center;
+  margin-top:15px;
+  margin-right:-4px;
 }

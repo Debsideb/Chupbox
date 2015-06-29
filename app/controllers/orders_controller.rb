@@ -26,7 +26,7 @@ class OrdersController < ApplicationController
   def destroy
     current_order.destroy
     session[:order_id] = nil
-    redirect_to root_path, :notice => "Your belly is empty again."
+    redirect_to products_path, :notice => "Your belly is empty again."
   end
 
 end

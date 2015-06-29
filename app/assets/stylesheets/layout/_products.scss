@@ -1,6 +1,6 @@
-#pack ul {
-  list-style-type:none;
-  margin-top:160px;
+.product-wrapper {
+  padding-top: 80px;
+  padding-bottom: 250px;
 }
 
 #pack #price {
@@ -14,7 +14,7 @@
 #pack h4 {
   font-family:'Sketch';
   color:#e8e8e8;
-  font-size:30px;
+  font-size:25px;
   text-align:left;
   margin-left:40px;
 }
@@ -28,3 +28,11 @@
   margin-right:10px;
   font-weight:100;
 }
+
+.product-wrapper #add-button img {
+  height:35px;
+  width:auto;
+  margin-left:40px;
+  margin-top:10px;
+}
+
