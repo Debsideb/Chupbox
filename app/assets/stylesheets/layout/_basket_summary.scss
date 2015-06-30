@@ -2,36 +2,39 @@
   display:block;
   margin-left: auto;
   margin-right: auto;
-  margin-top:0px;
-  height: 200px;
+  margin-top:-2px;
+  height: 190px;
   width:auto;
+  -webkit-box-shadow: 6px 6px 6px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 6px 6px 6px 1px rgba(0,0,0,0.75);
+  box-shadow: 6px 6px 6px 1px rgba(0,0,0,0.75);
 }
 
 
 .basket #items-number {
   font-family:'Sketch';
   font-size:60px;
-  color:#c29856;
+  color:#eab748;
   text-align:center;
   margin-right:25px;
-  margin-top:-200px;
+  margin-top:-185px;
 }
 
 .basket #pieces {
   font-family:'Sketch';
-  font-size:20px;
-  color:#c29856;
+  font-size:19px;
+  color:#eab748;
   text-align:center;
-  margin-top:-73px;
-  margin-right:-50px;
+  margin-top:-70px;
+  margin-right:-40px;
 }
 
 .basket #inyour {
   font-family:'impact';
-  color:#929292;
+  color:#e3e3e3;
   font-size:11px;
   text-align:center;
-  margin-top:20px;
+  margin-top:10px;
   margin-right:-10px;
 }
 
@@ -39,25 +42,24 @@
   font-family:'impact';
   font-size:13px;
   text-align:center;
-  color:#929292;
-  margin-top:-12px;
+  color:#e3e3e3;
+  margin-top:-14px;
   margin-right:-10px;
 }
 
 .basket #price {
   font-family:'GrutchShaded';
-  color:#5b5b5b;
+  color:#e3e3e3;
   font-size:25px;
   text-align:center;
-  margin-top:-5px;
+  margin-top:-10px;
   margin-right:-8px;
 }
 
 .basket #checkout {
   font-family:'KGSecondChancesSketch';
-  color:#434343;
-  font-size:15px;
+  color:#e3e3e3;
+  font-size:13px;
   text-align:center;
-  margin-top:15px;
-  margin-right:-4px;
+  margin-top:-2px;
 }
