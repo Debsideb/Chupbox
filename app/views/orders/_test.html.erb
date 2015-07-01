@@ -1,13 +1,58 @@
-<div class="col-md-4"></div>
-<div class="col-md-4" id="my-bg">
-  here goes my bg img
-  <div class="container">
-    <div class="row">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4"></div>
 
-      <div class="col-md-6" id="product-rectangle">
+      <!-- THE BASKET -->
+
+      <div class="col-md-4" id="the-basket">
+       <%= image_tag "basket-bg.png" %>
+        <div class="container">
+          <div class="row">
+            <p id="whats"> What's in your </p>
+            <p id="belly"> Belly </p>
+          </div>
+        </div>
+
+        <% order.order_items.each do |item| %>
+
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6" id="product-rectangle">
+                <div id="rectangle-image">
+                 <%= image_tag "rectangle-produit.png" %>
+                  <div class="container">
+                    <div class="row">
+                       <div class="col-md-8">
+                         <p id="quantity"><%= item.quantity %>X</p>
+                         <p id="full-name"><%= item.ordered_item.full_name %></p>
+                        </div>
+                       <div class="col-md-4" id="t-price">
+                      <%= number_to_currency item.total %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+
+          <div class="container">
+            <div class="row">
+              <% if order.delivery_service %>
+                <%= number_to_currency item.total %>
+                <p> + </p>
+                <p id="delivery-day"><%= order.delivery_service.name %></p>
+                <p id="delivery-price"><%= number_to_currency order.delivery_price %></p>
+                <p> = </p>
+                <p id="item+delivery"><%= number_to_currency order.total %></p>
+              <% end %>
+            </div>
+          </div>
       </div>
 
-    </div>
+
+    <div class="col-md-4"></div>
   </div>
 </div>
-<div class="col-md-4"></div>
