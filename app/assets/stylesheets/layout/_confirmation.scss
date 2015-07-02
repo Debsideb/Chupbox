@@ -1,0 +1,58 @@
+
+#theconf img {
+  position: absolute;
+  z-index: -1;
+  height:450px;
+  width:auto;
+  margin-left:-40px;
+  -webkit-box-shadow: 6px 6px 6px 1px rgba(0,0,0,0.75);
+  -moz-box-shadow: 6px 6px 6px 1px rgba(0,0,0,0.75);
+  box-shadow: 6px 6px 6px 1px rgba(0,0,0,0.75);
+}
+
+#theconf #awesome {
+    margin-top:160px;
+    font-family:'DK Crayon Crumble';
+    color:#eab748;
+    font-size: 40px;
+    text-align:center;
+}
+
+#theconf #received {
+    margin-top:-5px;
+    font-family:'KGSecondChancesSketch';
+    color:$greyish;
+    font-size: 20px;
+    text-align:center;
+}
+
+#theconf #email {
+    margin-top:-6px;
+    margin-right:90px;
+    margin-left:90px;
+    font-family:'KGSecondChancesSketch';
+    color:$greyish;
+    font-size: 14px;
+    text-align:center;
+}
+
+#theconf #see {
+    margin-top:40px;
+    margin-right:90px;
+    margin-left:90px;
+    font-family:'KGSecondChancesSketch';
+    color:$greyish;
+    font-size: 14px;
+    text-align:center;
+}
+
+#theconf #close img {
+    -webkit-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.75);
+    width:35px;
+    height:auto;
+    text-align:center;
+    margin-top:50px;
+}
+

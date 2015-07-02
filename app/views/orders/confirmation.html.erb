@@ -1,3 +1,15 @@
-<h2>Place your order</h2>
-<%= render 'items', :order => current_order %>
-<%= button_to "Place order" %>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4" id="theconf">
+        <%= image_tag "confirmation-bg.png" %>
+        <p id="awesome"> Awesomeruu! </p>
+        <p id="received">  We received your order.  </p>
+        <p id="email"> You should receive a confirmation email really soon: </p>
+        <p id="see"> See you soon on Chupbox! </p>
+        <div id= "close">
+        <%= link_to_image "basket-close.png", products_path %>
+        </div>
+    </div>
+  </div>
+</div>

@@ -16,35 +16,52 @@
         <% end %>
       </div>
       <div class="col-md-4"></div>
-      </div>
-    </div>
-  </div>
-
-<% @products.each do |category, products| %>
-
-<div class="product-wrapper">
-  <div class="container-fluid">
-    <div class="row">
-      <div class ="col-md-4" id="pack">
-        <% products.each do |product| %>
-        <p id="price"><%= number_to_currency product.price %></p>
-        <h4><%= product.name.upcase %></h4>
-        <p id="description"><%= product.short_description %></p>
-        <div class = "add-button">
-          <%= link_to_image "add-me-nohov.png", product_path(product.permalink), :method => :post %>
-        </div>
-     </div>
-      <div class="col-md-8" id="prod-img">
-        <% if product.default_image %>
-       <%= image_tag product.default_image.path %>
-        <% end %>
-        <% end %>
-      </div>
     </div>
   </div>
 </div>
 
+<% @products.each do |category, products| %>
+
+  <div class="product-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class ="col-md-4" id="pack">
+          <% products.each do |product| %>
+          <p id="price"><%= number_to_currency product.price %></p>
+          <h4><%= product.name.upcase %></h4>
+          <p id="description"><%= product.short_description %></p>
+          <div class="add-button">
+            <%= link_to_image "add-me-nohov.png", product_path(product.permalink), :class => "order-button" %>
+          </div>
+       </div>
+        <div class="col-md-8" id="prod-img">
+          <% if product.default_image %>
+         <%= image_tag product.default_image.path %>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
 <% end %>
+
+<script>
+  $('.order-button').click(function() {
+    $.ajax({
+      type: "POST",
+      url: $(this).attr('href'),
+      dataType: "JSON"
+    }).success(function(data) {
+      $("#items-number").html(data.total_items);
+      $("#price").html("€" + data.total_before_tax);
+    }).error(function(data) {
+      console.log("error, probably out of stock");
+      return false;
+    });
+    return false;
+  });
+</script>
 
   <!-- <#%= link_to "View basket", basket_path %>
   <#%= flash[:notice] %> -->
