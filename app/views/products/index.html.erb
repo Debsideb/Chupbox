@@ -2,11 +2,10 @@
 <div class= "basket">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-4"></div>
-      <div class="col-md-4">
+      <div class="col-md-4 col-md-offset-4">
         <% if current_order %>
           <div id="basket-tag">
-          <%= image_tag "basket-tag-black.png" %>
+          <%= image_tag "basket-tag-1.png" %>
           </div>
           <p id="items-number"><%= pluralize current_order.total_items, ''%></p>
           <p id="pieces"> pcs </p>
@@ -31,13 +30,13 @@
         <p id="price"><%= number_to_currency product.price %></p>
         <h4><%= product.name.upcase %></h4>
         <p id="description"><%= product.short_description %></p>
-        <div id = "add-button">
-          <%= link_to_image "add-me.png", product_path(product.permalink), :method => :post %>
+        <div class = "add-button">
+          <%= link_to_image "add-me-nohov.png", product_path(product.permalink), :method => :post %>
         </div>
      </div>
-      <div class="col-md-8">
+      <div class="col-md-8" id="prod-img">
         <% if product.default_image %>
-       <%= image_tag product.default_image.path, :width => '300px', :style => "float:right" %>
+       <%= image_tag product.default_image.path %>
         <% end %>
         <% end %>
       </div>

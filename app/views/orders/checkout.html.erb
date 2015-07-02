@@ -1,25 +1,43 @@
-<h2>Checkout</h2>
 
-<%= form_for @order, :url => checkout_path do |f| %>
-  <dl>
-    <dt><%= f.label :first_name, 'Name' %></dt>
-    <dd><%= f.text_field :first_name %> <%= f.text_field :last_name %></dd>
+<div class="container-fluid">
+  <div class="row">
+    <div class = "col-md-4 col-md-offset-4" id="form">
+      <%= image_tag "basket-bg-bck.png" %>
 
-    <dt><%= f.label :billing_address1, 'Address' %></dt>
-    <dd><%= f.text_field :billing_address1 %></dd>
-    <dd><%= f.text_field :billing_address2 %></dd>
-    <dd><%= f.text_field :billing_address3 %></dd>
-    <dd><%= f.text_field :billing_address4 %></dd>
-    <dt><%= f.label :billing_postcode, 'Post code' %></dt>
-    <dd><%= f.text_field :billing_postcode %></dd>
-    <dd><%= f.collection_select :billing_country_id, Shoppe::Country.ordered, :id, :name, :include_blank => true %></dd>
+      <p id="a-click">You're a click away to</p> <p id="yummy">yummyland:</p>
 
-    <dt><%= f.label :email_address %></dt>
-    <dd><%= f.text_field :email_address %></dd>
+      <%= form_for @order, :url => checkout_path do |f| %>
 
-    <dt><%= f.label :phone_number %></dt>
-    <dd><%= f.text_field :phone_number %></dd>
+      <div id="check-name">
+        <%= f.text_field :first_name, placeholder: 'First name' %> <%= f.text_field :last_name, placeholder: 'Last name' %>
+      </div>
 
-    <dd><%= f.submit 'Continue' %></dd>
-  </dl>
-<% end %>
+      <div id= "check-add">
+        <%= f.text_field :billing_address1, placeholder: 'Your address'%> <%= f.text_field :billing_postcode, placeholder: 'Zip code' %>
+        <%= f.hidden_field :billing_address2, value: "test" %>
+        <%= f.hidden_field :billing_address3, value: "test" %>
+        <%= f.hidden_field :billing_address4, value: "test" %>
+      </div>
+
+      <div id= "check-delivery">
+        <p> Choose a day to be delivered: </p>
+        <%= f.collection_select :billing_country_id, Shoppe::Country.ordered, :id, :name, :include_blank => true %>
+      </div>
+
+      <div id= "check-email">
+        <%= f.text_field :email_address, placeholder: 'E-mail' %>
+      </div>
+
+      <div id="check-phone">
+        <%= f.text_field :phone_number, placeholder: 'and a phone number...' %>
+      </div>
+
+      <div id="check-continue">
+        <%= f.submit 'Confirm' %>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

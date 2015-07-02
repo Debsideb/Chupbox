@@ -1,40 +1,39 @@
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div class="col-md-4"></div>
-      <div class="col-md-4">
-        <div id = "the-basket">
-        <%= image_tag "basket-bg.png" %>
-        </div>
+    <div class="col-md-4 col-md-offset-4" id="the-basket">
+        <%= image_tag "basket-bg-bck.png" %>
         <p id="whats"> What's in your </p>
         <p id="belly"> Belly </p>
 
         <% order.order_items.each do |item| %>
 
-          <div class="col-md-6" id="product-rectangle">
-            <div id="rectangle-image">
-              <%= image_tag "rectangle-produit.png" %>
-              <p id="quantity"><%= item.quantity %>X</p>
-              <p id="full-name"><%= item.ordered_item.full_name %></p>
-              <p id="total-price"><%= number_to_currency item.total %></p>
-            </div>
-          </div>
+        <div class="col-md-12" id="product-rectangle">
+          <p id="quantity"><%= item.quantity %>X</p>
+          <p id="full-name"><%= item.ordered_item.full_name %></p>
+          <p id="price-pack"><%= number_to_currency item.total %></p>
+        </div>
         <% end %>
 
-          <% if order.delivery_service %>
-            <p id="delivery-day"><%= order.delivery_service.name %></p>
-            <p id="delivery-price"><%= number_to_currency order.delivery_price %></p>
-            <p id="totaly-spice"><%= number_to_currency order.total %></p>
-          <% end %>
+          <div class="col-md-12" id="total-price">
+            <p id="ttp">To pay on delivery:</p>
+            <%= number_to_currency order.total %>
+          </div>
 
-           <div id='totally-spice'>
-             <p id="ttp">To pay on delivery:</p>
-              <%= number_to_currency order.total %>
-            </div>
+          <div class="col-md-12" id="checkout">
+            <p id="check-it-out"><%= link_to 'Checkout', checkout_path%></p>
+            <p id="empty-it"><%= link_to 'Empty belly', basket_path, :method => :delete %></p>
+          </div>
 
-          <p id="check-it-out"><%= link_to 'Checkout', checkout_path%></p>
-          <p id="empty-it"><%= link_to 'Empty belly', basket_path, :method => :delete %></p>
 
-      </div>
+    </div>
   </div>
-</div>
+ </div>
+
+  <% if order.delivery_service %>
+            <div class="col-md-12" id="delivery">
+              <p id="delivery-day"><%= order.delivery_service.name %></p>
+              <p id="delivery-price"><%= number_to_currency order.delivery_price %></p>
+              <p id="totaly-spice"><%= number_to_currency order.total %></p>
+            </div>
+          <% end %>
