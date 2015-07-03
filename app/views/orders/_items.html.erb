@@ -2,41 +2,39 @@
 <div class="container-fluid">
   <div class="row">
     <div class="col-md-4 col-md-offset-4" id="the-basket">
-        <%= image_tag "basket-bg-bck.png" %>
-        <p id="whats"> What's in your </p>
-        <p id="belly"> Belly </p>
+      <%= image_tag "basket-bg-bck.png" %>
+      <p id="whats"> What's in your </p>
+      <p id="belly"> Belly </p>
 
-        <% order.order_items.each do |item| %>
+      <% order.order_items.each do |item| %>
         <div class="col-md-12" id="product-rectangle">
           <p id="full-name"> <%= item.quantity %> X   <%= item.ordered_item.full_name %> = <%= number_to_currency item.total %></p>
           <p id="default-image">  <%= image_tag item.ordered_item.attachments.first.file_url %> </p>
         </div>
-        <% end %>
+      <% end %>
 
-          <div class="col-md-12" id="total-price">
-            <p id="ttp">To pay on delivery:</p>
-            <%= number_to_currency order.total %>
-          </div>
+      <div class="col-md-12" id="total-price">
+        <p id="ttp">To pay on delivery:</p>
+        <%= number_to_currency order.total %>
+      </div>
 
-          <div class="col-md-12" id="checkout">
-            <p id="check-it-out"><%= link_to 'Checkout', checkout_path%></p>
-            <p id="empty-it"><%= link_to 'Empty belly', basket_path, :method => :delete %></p>
-            <div id= "close">
-              <%= link_to products_path do %>
-              <%= image_tag "go-back-btn.png" %>
-              <% end %>
-          </div>
-
+      <div class="col-md-12" id="checkout">
+        <p id="check-it-out"><%= link_to 'Checkout', checkout_path%></p>
+        <p id="empty-it"><%= link_to 'Empty belly', basket_path, :method => :delete %></p>
+        <div id= "close">
+          <%= link_to products_path do %>
+            <%= image_tag "go-back-btn.png" %>
+          <% end %>
         </div>
-
+      </div>
     </div>
   </div>
- </div>
+</div>
 
-  <% if order.delivery_service %>
-            <div class="col-md-12" id="delivery" style='display:none;'>
-              <p id="delivery-day"><%= order.delivery_service.name %></p>
-              <p id="delivery-price"><%= number_to_currency order.delivery_price %></p>
-              <p id="totaly-spice"><%= number_to_currency order.total %></p>
-            </div>
-          <% end %>
+<% if order.delivery_service %>
+  <div class="col-md-12" id="delivery" style='display:none;'>
+    <p id="delivery-day"><%= order.delivery_service.name %></p>
+    <p id="delivery-price"><%= number_to_currency order.delivery_price %></p>
+    <p id="totaly-spice"><%= number_to_currency order.total %></p>
+  </div>
+<% end %>
