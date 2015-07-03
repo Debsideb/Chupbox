@@ -9,7 +9,7 @@
         <% order.order_items.each do |item| %>
         <div class="col-md-12" id="product-rectangle">
           <p id="full-name"> <%= item.quantity %> X   <%= item.ordered_item.full_name %> = <%= number_to_currency item.total %></p>
-          <p id="default-image">  <%= image_tag item.ordered_item.attachments.first.file_name %> </p>
+          <p id="default-image">  <%= image_tag item.ordered_item.attachments.first.file_url %> </p>
         </div>
         <% end %>
 
